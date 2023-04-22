@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТЫ ДАУН ЕБАНЫЙ</title>
+    <link rel="shortcut icon" type="image/png" href="icon.png">
+    <style>
+        body{
+            background-color: #fff;
+            color: #000;
+        }
+        h1{
+            font-size: 100px;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: auto;
+        }
+        #yes{
+            
+            position: absolute;
+            top: 55%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            width: 15%;
+            height: 8%;
+            margin: auto;
+            
+        }
+        #no{
+            
+            position: absolute;
+            top: 55%;
+            left: 70%;
+            transform: translate(-50%, -50%);
+            width: 15%;
+            height: 8%;
+            margin: auto;
+            
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 id="dayn">ТЫ ДАУН?</h1>
+        <button id="yes">ДА</button>
+        <button id="no">НЕТ</button>
+    </div>
+    <script>
+        const yes = document.getElementById("yes")
+        const no = document.getElementById("no")
+        const dayn = document.getElementById("dayn")
+        yes.addEventListener("click", function(event){
+            event.preventDefault();
+            yes.remove();
+            no.remove();
+            dayn.innerHTML = "Я ЗНАЛ)";
+        });
+        no.addEventListener("click", function(event){
+            const maxWidth = window.innerWidth - no.clientWidth;
+            const maxHeight = window.innerHeight - no.clientHeight;
+            const randomX = Math.floor(Math.random() * maxWidth);
+            const randomY = Math.floor(Math.random() * maxHeight);
+            
+            no.style.top = `${randomY}px`;
+            no.style.left = `${randomX}px`;
+        });
+    </script>
+</body>
+</html>
